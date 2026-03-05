@@ -1,28 +1,8 @@
-const searchBtn = document.getElementById('searchBtn');
-const searchInput = document.getElementById('searchInput');
-const movieContainer = document.getElementById('movieContainer');
+body { font-family: sans-serif; background: #111; color: white; text-align: center; margin: 0; }
+nav { background: #222; padding: 20px; }
+input { padding: 10px; border-radius: 5px; border: none; width: 200px; }
+button { padding: 10px 20px; background: red; color: white; border: none; cursor: pointer; border-radius: 5px; }
+.movie-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; padding: 20px; }
+.movie-card { background: #333; padding: 15px; border-radius: 10px; }
+.movie-card img { width: 100%; border-radius: 5px; }
 
-searchBtn.addEventListener('click', () => {
-    const movieName = searchInput.value;
-    if (movieName) {
-        fetch(`https://www.omdbapi.com/?s=${movieName}&apikey=71050e55`)
-            .then(res => res.json())
-            .then(data => {
-                if (data.Search) {
-                    displayMovies(data.Search);
-                } else {
-                    movieContainer.innerHTML = '<p>ရှာမတွေ့ပါဘူး။</p>';
-                }
-            });
-    }
-});
-
-function displayMovies(movies) {
-    movieContainer.innerHTML = movies.map(movie => `
-        <div class="movie-card">
-            <img src="${movie.Poster}" alt="${movie.Title}">
-            <h3>${movie.Title}</h3>
-            <p>${movie.Year}</p>
-        </div>
-    `).join('');
-}
