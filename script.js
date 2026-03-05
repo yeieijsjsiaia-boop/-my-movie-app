@@ -11,7 +11,7 @@ searchBtn.addEventListener('click', () => {
                 if (data.Search) {
                     displayMovies(data.Search);
                 } else {
-                    movieContainer.innerHTML = '<p>ရှာမတွေ့ပါဘူးခင်ဗျာ။</p>';
+                    movieContainer.innerHTML = '<p>ရှာမတွေ့ပါဘူး။</p>';
                 }
             });
     }
