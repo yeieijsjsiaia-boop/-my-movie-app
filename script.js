@@ -5,7 +5,6 @@ const movieContainer = document.getElementById('movieContainer');
 searchBtn.addEventListener('click', () => {
     const movieName = searchInput.value;
     if (movieName) {
-        // ဒီနေရာမှာ s=${movieName} လို့ မှန်အောင် ရေးပေးရပါမယ်
         fetch(`https://www.omdbapi.com/?s=${movieName}&apikey=71050e55`)
             .then(res => res.json())
             .then(data => {
@@ -27,4 +26,3 @@ function displayMovies(movies) {
         </div>
     `).join('');
 }
-
