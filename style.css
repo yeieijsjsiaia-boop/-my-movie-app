@@ -26,4 +26,4 @@ function displayMovies(movies) {
             <p>${movie.Year}</p>
         </div>
     `).join('');
-}
+    }
